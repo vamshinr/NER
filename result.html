@@ -1,0 +1,78 @@
+<!-- {% include 'home.html' %} -->
+<head>
+<style type="text/css"> 
+      
+    th:tr{ 
+        color: blue; 
+  
+    } 
+    tr:nth-of-type(2n){ 
+        border: 1px solid black; 
+        background-color: rgba(150, 150, 150, 0.5); 
+  
+    } 
+  
+    td{ 
+        padding: 8px 8px; 
+        border: 1px solid black; 
+    } 
+	input{
+	  background-color: #008CBA;
+	  border: none;
+	  color: white;
+	  padding: 15px 32px;
+	  text-align: center;
+	  text-decoration: none;
+	  display: inline-block;
+	  font-size: 16px;
+	}
+	
+</style> 
+</head>
+<body>
+<center>
+<br>
+<h2>RESULT<h2>
+<table>
+<tr><td><h3><b>GIVEN SENTENCE   :   </b></h3></td><td>{{value}}</td></tr>
+<tr><td><h3><b>TOTAL SENTENCE WITH TAGS   :   </b></h3></td><td>{{sent}}</td></tr>
+</table>
+<h2>NER TAGS FOR SUBMITTED SENTENCE:</h2>
+<table style="margin-left: 20px;"> 
+<!-- Table headers -->
+    <th> 
+        <tr style="color: green; ">     
+        <td>TAGGED TEXT</td> 
+        <td>LABEL</td> 
+</tr> 
+    </th> 
+      
+<!-- For loop logic of jinja template -->
+{%for i in range(0,length)%} 
+  
+<!-- table rows -->
+<tr> 
+    <td>{{res[i][0]}}</td> 
+    <td>{{res[i][1]}}</td> 
+ </tr>  
+ 
+{%endfor%} 
+  
+</table> 
+<br>
+<form action="http://127.0.0.1:5000/">
+    <input type="submit" value="HOME" />
+</form>
+<br>
+<table>
+<tr><td>DEG -- Degree</td></tr>
+<tr><td>EDU -- Education</td></tr>
+<tr><td>EXP -- Experience</td></tr>
+<tr><td>LOC -- Location</td></tr>
+<tr><td>ORG -- Organization</td></tr>
+<tr><td>ROL -- Role</td></tr>
+<tr><td>DUR -- Duration</td></tr>
+</table>
+</center>
+</body>
+
